@@ -1,36 +1,55 @@
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import ContentCreator from "../components/ContentCreator";
+import supabase from "../client";
 
 const ShowCreators = () => {
-  const creators = [
-    {
-      name: "Jane Doe",
-      url: "https://janedoe.com",
-      description: "Jane is a full-stack developer creating modern web apps.",
-      image: "https://via.placeholder.com/350x200",
-    },
-    {
-      name: "John Smith",
-      url: "https://johnsmith.com",
-      description: "John is a YouTuber focusing on JavaScript tutorials.",
-      image: "https://via.placeholder.com/350x200",
-    },
-  ];
+  const [creators, setCreators] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchCreators = async () => {
+      const { data, error } = await supabase.from("creators").select("*");
+      if (error) {
+        console.error("Error fetching creators:", error);
+      } else {
+        setCreators(data);
+      }
+      setLoading(false);
+    };
+    fetchCreators();
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (creators.length === 0) return <p>No creators found.</p>;
 
   return (
     <div>
       <h1>Content Creators</h1>
+
+      {/* Add Creator Button */}
+      <Link to="/add">
+        <button style={{ marginBottom: "20px" }}>Add New Creator</button>
+      </Link>
+
       <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
-        {creators.map((creator, index) => (
+        <div className="creators-grid">
+
+        {creators.map((creator) => (
           <ContentCreator
-            key={index}
+            key={creator.id}
+            id={creator.id} // pass id for routing
             name={creator.name}
             url={creator.url}
             description={creator.description}
-            image={creator.image}
+            image={creator.imageURL}
           />
         ))}
       </div>
+      </div>
+
     </div>
+    
   );
 };
 
