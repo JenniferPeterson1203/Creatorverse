@@ -1,12 +1,61 @@
-# React + Vite
+# 🌌 Creatorverse
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Creatorverse is a **React + Supabase application** where you can view, add, edit, and delete content creators.  
+It’s built with **Vite**, **React Router**, and **Supabase** for the backend database.  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
+- View a list of content creators
+- View details of a single creator
+- Add new creators with name, URL, description, and image
+- Edit existing creators
+- Delete creators
+- Styled creator cards with optional images
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+- [React](https://react.dev/) – UI framework  
+- [Vite](https://vitejs.dev/) – development environment  
+- [React Router](https://reactrouter.com/) – client-side routing  
+- [Supabase](https://supabase.com/) – backend database & API  
+- [ESLint](https://eslint.org/) – linting and code quality  
+
+---
+
+## 📦 Installation & Setup
+
+Clone the repository:
+```bash
+git clone https://github.com/your-username/creatorverse.git
+cd creatorverse
+```
+## Install dependencies:
+```bash 
+npm install 
+```
+
+
+## Set up Supabase:
+
+1. Create a Supabase project
+.
+
+2. Create a table named creators with columns: name, url, description, imageURL.
+
+3. Copy your Supabase Project URL and API Key (found under Settings → API).
+
+4. Add them to src/client.js.
+
+## Run the development server:
+```bash 
+npm run dev
+```
+
+## Build for production:
+```bash 
+npm run build
+```
+
+## 📬 Contact
