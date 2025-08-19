@@ -1,33 +1,28 @@
-import { useState } from 'react'
-import {  Routes, Route } from "react-router-dom";
-import supabase from './client';
-import './App.css'
 
-//Pages
-import AddCreator from './pages/AddCreator'
-import EditCreator from './pages/EditCreator';
-import ShowCreators from './pages/ShowCreators';
-import ViewCreator from './pages/ViewCreator';
-import FOUROFOUR from './pages/FOUROFOUR';
-
-console.log('supabase:', supabase);
+import { useRoutes } from "react-router-dom";
+import ShowCreators from "./pages/ShowCreators";
+import ViewCreator from "./pages/ViewCreator";
+import EditCreator from "./pages/EditCreator";
+import AddCreator from "./pages/AddCreator";
+import FOUROFOUR from "./pages/FOUROFOUR";
+import Dashboard from "./components/Dashboard";
+import Footer from "./components/Footer";
 
 function App() {
-  return (
-  <>
-<h1>nav goes here</h1>
-  
-      <Routes>
-        
-        <Route element={<AddCreator />} path='/add-creator'/>
-         <Route element={<EditCreator />} path='/edit-creator/:id'/>
-        <Route element={<ShowCreators />} path='/show-creators'/>
-        <Route element={<ViewCreator />} path='/view-creator/:id'/> 
-        <Route element={<FOUROFOUR />} path='/*'/>
-        
-      </Routes>
-</>
+  const routes = useRoutes([
+    { path: "/", element: <ShowCreators /> },
+    { path: "/view/:id", element: <ViewCreator /> },
+    { path: "/edit/:id", element: <EditCreator /> },
+    { path: "/add", element: <AddCreator /> },
+    { path: "*", element: <FOUROFOUR /> },
+  ]);
 
+    return (
+    <div>
+      <Dashboard />
+      <main>{routes}</main>
+      <Footer />
+    </div>
   );
 }
 
