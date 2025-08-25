@@ -5,6 +5,11 @@ It’s built with **Vite**, **React Router**, and **Supabase** for the backend d
 
 ---
 
+## 🎥 Demo Video
+Watch the walkthrough here: [Creatorverse Demo](https://www.loom.com/share/86bca2471fdf42adb79341d66abdc092)
+
+---
+
 ## 🚀 Features
 - View a list of content creators
 - View details of a single creator
@@ -14,6 +19,7 @@ It’s built with **Vite**, **React Router**, and **Supabase** for the backend d
 - Styled creator cards with optional images
 
 ---
+
 
 ## 🛠️ Tech Stack
 - [React](https://react.dev/) – UI framework  
@@ -58,4 +64,3 @@ npm run dev
 npm run build
 ```
 
-## 📬 Contact

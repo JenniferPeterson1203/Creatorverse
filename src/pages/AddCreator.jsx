@@ -12,7 +12,7 @@ const AddCreator = () => {
   const [error, setError] = useState(null);
 
   const handleSubmit = async (event) => {
-    e.preventDefault();
+    event.preventDefault();
     setLoading(true);
     setError(null);
 
